@@ -44,11 +44,11 @@
       <arcpath arcPointType="false" id="1" xCoord="615" yCoord="134"/>
     </arc>
     <arc id="A9" inscription="[0,0]" nameOffsetX="-1" nameOffsetY="14" source="P8" target="result" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="601" yCoord="112"/>
+      <arcpath arcPointType="false" id="0" xCoord="601" yCoord="113"/>
       <arcpath arcPointType="false" id="1" xCoord="530" yCoord="80"/>
     </arc>
     <arc id="A10" inscription="[suma,suma]" nameOffsetX="13" nameOffsetY="-19" source="P9" target="result" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="597" yCoord="50"/>
+      <arcpath arcPointType="false" id="0" xCoord="597" yCoord="49"/>
       <arcpath arcPointType="false" id="1" xCoord="530" yCoord="70"/>
     </arc>
     <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="result" target="Suma" type="normal" weight="1">
@@ -56,7 +56,7 @@
       <arcpath arcPointType="false" id="1" xCoord="120" yCoord="56"/>
     </arc>
   </net>
-  <net active="true" id="Exercise1" type="P/T net">
+  <net active="false" id="Exercise1" type="P/T net">
     <place displayName="true" id="S1" initialMarking="1" invariant="&lt;= s1" name="S1" nameOffsetX="43" nameOffsetY="42" positionX="70" positionY="284"/>
     <place displayName="true" id="S2" initialMarking="0" invariant="&lt;= s2" name="S2" nameOffsetX="45" nameOffsetY="46" positionX="330" positionY="280"/>
     <place displayName="true" id="S3" initialMarking="0" invariant="&lt;= s3" name="S3" nameOffsetX="53" nameOffsetY="54" positionX="602" positionY="277"/>
@@ -104,7 +104,7 @@
       <arcpath arcPointType="false" id="1" xCoord="119" yCoord="55"/>
     </arc>
   </net>
-  <query active="true" approximationDenominator="2" capacity="0" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="s1+s2+s3=sum" overApproximation="true" pTrie="true" query="EF Exercise1.Sum &gt; 0" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true"/>
+  <query active="false" approximationDenominator="2" capacity="0" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="s1+s2+s3=sum" overApproximation="true" pTrie="true" query="EF Exercise1.Sum &gt; 0" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true"/>
   <query active="true" approximationDenominator="2" capacity="0" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="s1a+s2a+s3a=suma" overApproximation="true" pTrie="true" query="EF Exercise1a.Suma &gt; 0" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true"/>
   <k-bound bound="3"/>
   <feature isGame="false" isTimed="true"/>
