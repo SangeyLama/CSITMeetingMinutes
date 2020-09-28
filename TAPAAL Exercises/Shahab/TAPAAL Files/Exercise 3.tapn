@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <constant name="red_timer" value="32"/>
+  <net active="false" id="Exercise3" type="P/T net">
+    <place displayName="true" id="TrainsApproaching" initialMarking="0" invariant="&lt;= 25" name="TrainsApproaching" nameOffsetX="0" nameOffsetY="0" positionX="331" positionY="127"/>
+    <place displayName="true" id="Passing" initialMarking="0" invariant="&lt;= 6" name="Passing" nameOffsetX="-1" nameOffsetY="-6" positionX="638" positionY="142"/>
+    <place displayName="true" id="Passed" initialMarking="0" invariant="&lt; inf" name="Passed" nameOffsetX="0" nameOffsetY="0" positionX="983" positionY="142"/>
+    <place displayName="true" id="Trains" initialMarking="5" invariant="&lt; inf" name="Trains" nameOffsetX="24" nameOffsetY="46" positionX="50" positionY="166"/>
+    <place displayName="true" id="Sensor" initialMarking="0" invariant="&lt;= 0" name="Sensor" nameOffsetX="53" nameOffsetY="-18" positionX="259" positionY="268"/>
+    <place displayName="true" id="Green" initialMarking="1" invariant="&lt; inf" name="Green" nameOffsetX="0" nameOffsetY="0" positionX="172" positionY="397"/>
+    <place displayName="true" id="Yellow" initialMarking="0" invariant="&lt;= 5" name="Yellow" nameOffsetX="-6" nameOffsetY="-5" positionX="447" positionY="398"/>
+    <place displayName="true" id="Red" initialMarking="0" invariant="&lt;= 30" name="Red" nameOffsetX="-1" nameOffsetY="-13" positionX="746" positionY="398"/>
+    <place displayName="false" id="P1" initialMarking="0" invariant="&lt; inf" name="P1" nameOffsetX="35" nameOffsetY="28" positionX="495" positionY="276"/>
+    <transition angle="0" displayName="true" id="crossing" infiniteServer="false" name="crossing" nameOffsetX="37" nameOffsetY="-7" player="0" positionX="504" positionY="135" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="pastCrossing" infiniteServer="false" name="pastCrossing" nameOffsetX="46" nameOffsetY="-8" player="0" positionX="803" positionY="142" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="approaching" infiniteServer="false" name="approaching" nameOffsetX="53" nameOffsetY="-13" player="0" positionX="194" positionY="179" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="toYellow" infiniteServer="false" name="toYellow" nameOffsetX="39" nameOffsetY="45" player="0" positionX="332" positionY="397" priority="0" urgent="true"/>
+    <transition angle="0" displayName="true" id="toRed" infiniteServer="false" name="toRed" nameOffsetX="28" nameOffsetY="-10" player="0" positionX="578" positionY="397" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="reset" infiniteServer="false" name="reset" nameOffsetX="30" nameOffsetY="-8" player="0" positionX="457" positionY="480" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="resetRed" infiniteServer="false" name="resetRed" nameOffsetX="38" nameOffsetY="-7" player="0" positionX="682" positionY="277" priority="0" urgent="true"/>
+    <transition angle="0" displayName="true" id="noAction" infiniteServer="false" name="noAction" nameOffsetX="0" nameOffsetY="0" player="0" positionX="135" positionY="277" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[20,25]" nameOffsetX="1" nameOffsetY="-12" source="TrainsApproaching" target="crossing" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="360" yCoord="142"/>
+      <arcpath arcPointType="false" id="1" xCoord="513" yCoord="150"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="crossing" target="Passing" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="523" yCoord="150"/>
+      <arcpath arcPointType="false" id="1" xCoord="638" yCoord="156"/>
+    </arc>
+    <arc id="A2" inscription="[3,6]" nameOffsetX="3" nameOffsetY="-5" source="Passing" target="pastCrossing" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="668" yCoord="157"/>
+      <arcpath arcPointType="false" id="1" xCoord="812" yCoord="157"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="pastCrossing" target="Passed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="822" yCoord="157"/>
+      <arcpath arcPointType="false" id="1" xCoord="983" yCoord="157"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="1" nameOffsetY="13" source="Trains" target="approaching" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="79" yCoord="182"/>
+      <arcpath arcPointType="false" id="1" xCoord="203" yCoord="194"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="approaching" target="TrainsApproaching" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="213" yCoord="194"/>
+      <arcpath arcPointType="false" id="1" xCoord="332" yCoord="147"/>
+    </arc>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="approaching" target="Sensor" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="213" yCoord="194"/>
+      <arcpath arcPointType="false" id="1" xCoord="265" yCoord="270"/>
+    </arc>
+    <arc id="A9" inscription="[0,inf)" nameOffsetX="4" nameOffsetY="-2" source="Green" target="toYellow" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="202" yCoord="412"/>
+      <arcpath arcPointType="false" id="1" xCoord="341" yCoord="412"/>
+    </arc>
+    <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="toYellow" target="Yellow" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="351" yCoord="412"/>
+      <arcpath arcPointType="false" id="1" xCoord="447" yCoord="412"/>
+    </arc>
+    <arc id="A11" inscription="[5,5]" nameOffsetX="3" nameOffsetY="-6" source="Yellow" target="toRed" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="476" yCoord="412"/>
+      <arcpath arcPointType="false" id="1" xCoord="587" yCoord="412"/>
+    </arc>
+    <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="toRed" target="Red" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="597" yCoord="412"/>
+      <arcpath arcPointType="false" id="1" xCoord="746" yCoord="412"/>
+    </arc>
+    <arc id="A13" inscription="[30,30]" nameOffsetX="0" nameOffsetY="0" source="Red" target="reset" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="746" yCoord="417"/>
+      <arcpath arcPointType="false" id="1" xCoord="476" yCoord="495"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="reset" target="Green" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="466" yCoord="495"/>
+      <arcpath arcPointType="false" id="1" xCoord="201" yCoord="416"/>
+    </arc>
+    <arc id="A16" inscription="[0,inf)" nameOffsetX="-11" nameOffsetY="-1" source="Red" target="resetRed" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="753" yCoord="400"/>
+      <arcpath arcPointType="false" id="1" xCoord="697" yCoord="307"/>
+    </arc>
+    <arc id="A17" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="-5" source="P1" target="resetRed" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="524" yCoord="291"/>
+      <arcpath arcPointType="false" id="1" xCoord="691" yCoord="292"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="resetRed" target="Red" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="701" yCoord="292"/>
+      <arcpath arcPointType="false" id="1" xCoord="887" yCoord="301"/>
+      <arcpath arcPointType="false" id="2" xCoord="772" yCoord="403"/>
+    </arc>
+    <arc id="A19" inscription="[0,inf)" nameOffsetX="-11" nameOffsetY="0" source="Sensor" target="toYellow" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="282" yCoord="295"/>
+      <arcpath arcPointType="false" id="1" xCoord="347" yCoord="397"/>
+    </arc>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="2" nameOffsetY="-8" source="Sensor" target="noAction" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="259" yCoord="284"/>
+      <arcpath arcPointType="false" id="1" xCoord="154" yCoord="292"/>
+    </arc>
+    <arc id="A21" inscription="1" nameOffsetX="0" nameOffsetY="0" source="approaching" target="P1" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="213" yCoord="194"/>
+      <arcpath arcPointType="false" id="1" xCoord="495" yCoord="286"/>
+    </arc>
+  </net>
+  <net active="true" id="Exercise3a" type="P/T net">
+    <labels border="true" height="36" positionX="645" positionY="450" width="195">red_timer needs to be at least 32</labels>
+    <place displayName="true" id="TrainsApproaching" initialMarking="0" invariant="&lt;= 25" name="TrainsApproaching" nameOffsetX="0" nameOffsetY="0" positionX="331" positionY="127"/>
+    <place displayName="true" id="Passing" initialMarking="0" invariant="&lt;= 6" name="Passing" nameOffsetX="-1" nameOffsetY="-6" positionX="638" positionY="142"/>
+    <place displayName="true" id="Passed" initialMarking="0" invariant="&lt; inf" name="Passed" nameOffsetX="0" nameOffsetY="0" positionX="983" positionY="142"/>
+    <place displayName="true" id="Trains" initialMarking="5" invariant="&lt; inf" name="Trains" nameOffsetX="24" nameOffsetY="46" positionX="50" positionY="166"/>
+    <place displayName="true" id="Sensor" initialMarking="0" invariant="&lt;= 0" name="Sensor" nameOffsetX="53" nameOffsetY="-18" positionX="259" positionY="268"/>
+    <place displayName="true" id="Green" initialMarking="1" invariant="&lt; inf" name="Green" nameOffsetX="0" nameOffsetY="0" positionX="172" positionY="397"/>
+    <place displayName="true" id="Yellow" initialMarking="0" invariant="&lt;= 5" name="Yellow" nameOffsetX="-6" nameOffsetY="-5" positionX="447" positionY="398"/>
+    <place displayName="true" id="Red" initialMarking="0" invariant="&lt;= red_timer" name="Red" nameOffsetX="-1" nameOffsetY="-13" positionX="746" positionY="398"/>
+    <place displayName="false" id="P1" initialMarking="0" invariant="&lt; inf" name="P1" nameOffsetX="35" nameOffsetY="28" positionX="495" positionY="276"/>
+    <transition angle="0" displayName="true" id="crossing" infiniteServer="false" name="crossing" nameOffsetX="37" nameOffsetY="-7" player="0" positionX="504" positionY="135" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="pastCrossing" infiniteServer="false" name="pastCrossing" nameOffsetX="46" nameOffsetY="-8" player="0" positionX="803" positionY="142" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="approaching" infiniteServer="false" name="approaching" nameOffsetX="53" nameOffsetY="-13" player="0" positionX="194" positionY="179" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="toYellow" infiniteServer="false" name="toYellow" nameOffsetX="39" nameOffsetY="45" player="0" positionX="332" positionY="397" priority="0" urgent="true"/>
+    <transition angle="0" displayName="true" id="toRed" infiniteServer="false" name="toRed" nameOffsetX="28" nameOffsetY="-10" player="0" positionX="578" positionY="397" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="reset" infiniteServer="false" name="reset" nameOffsetX="30" nameOffsetY="-8" player="0" positionX="457" positionY="480" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="resetRed" infiniteServer="false" name="resetRed" nameOffsetX="38" nameOffsetY="-7" player="0" positionX="682" positionY="277" priority="0" urgent="true"/>
+    <transition angle="0" displayName="true" id="noAction" infiniteServer="false" name="noAction" nameOffsetX="0" nameOffsetY="0" player="0" positionX="135" positionY="277" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[20,25]" nameOffsetX="1" nameOffsetY="-12" source="TrainsApproaching" target="crossing" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="360" yCoord="142"/>
+      <arcpath arcPointType="false" id="1" xCoord="513" yCoord="150"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="crossing" target="Passing" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="523" yCoord="150"/>
+      <arcpath arcPointType="false" id="1" xCoord="638" yCoord="156"/>
+    </arc>
+    <arc id="A2" inscription="[3,6]" nameOffsetX="3" nameOffsetY="-5" source="Passing" target="pastCrossing" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="668" yCoord="157"/>
+      <arcpath arcPointType="false" id="1" xCoord="812" yCoord="157"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="pastCrossing" target="Passed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="822" yCoord="157"/>
+      <arcpath arcPointType="false" id="1" xCoord="983" yCoord="157"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="1" nameOffsetY="13" source="Trains" target="approaching" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="79" yCoord="182"/>
+      <arcpath arcPointType="false" id="1" xCoord="203" yCoord="194"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="approaching" target="TrainsApproaching" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="213" yCoord="194"/>
+      <arcpath arcPointType="false" id="1" xCoord="332" yCoord="147"/>
+    </arc>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="approaching" target="Sensor" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="213" yCoord="194"/>
+      <arcpath arcPointType="false" id="1" xCoord="265" yCoord="270"/>
+    </arc>
+    <arc id="A9" inscription="[0,inf)" nameOffsetX="4" nameOffsetY="-2" source="Green" target="toYellow" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="202" yCoord="412"/>
+      <arcpath arcPointType="false" id="1" xCoord="341" yCoord="412"/>
+    </arc>
+    <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="toYellow" target="Yellow" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="351" yCoord="412"/>
+      <arcpath arcPointType="false" id="1" xCoord="447" yCoord="412"/>
+    </arc>
+    <arc id="A11" inscription="[5,5]" nameOffsetX="3" nameOffsetY="-6" source="Yellow" target="toRed" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="476" yCoord="412"/>
+      <arcpath arcPointType="false" id="1" xCoord="587" yCoord="412"/>
+    </arc>
+    <arc id="A12" inscription="1" nameOffsetX="0" nameOffsetY="0" source="toRed" target="Red" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="597" yCoord="412"/>
+      <arcpath arcPointType="false" id="1" xCoord="746" yCoord="412"/>
+    </arc>
+    <arc id="A13" inscription="[red_timer,red_timer]" nameOffsetX="0" nameOffsetY="0" source="Red" target="reset" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="746" yCoord="417"/>
+      <arcpath arcPointType="false" id="1" xCoord="476" yCoord="495"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="reset" target="Green" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="466" yCoord="495"/>
+      <arcpath arcPointType="false" id="1" xCoord="201" yCoord="416"/>
+    </arc>
+    <arc id="A16" inscription="[0,inf)" nameOffsetX="-11" nameOffsetY="-1" source="Red" target="resetRed" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="753" yCoord="400"/>
+      <arcpath arcPointType="false" id="1" xCoord="697" yCoord="307"/>
+    </arc>
+    <arc id="A17" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="-5" source="P1" target="resetRed" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="524" yCoord="291"/>
+      <arcpath arcPointType="false" id="1" xCoord="691" yCoord="292"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="resetRed" target="Red" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="701" yCoord="292"/>
+      <arcpath arcPointType="false" id="1" xCoord="887" yCoord="301"/>
+      <arcpath arcPointType="false" id="2" xCoord="772" yCoord="403"/>
+    </arc>
+    <arc id="A19" inscription="[0,inf)" nameOffsetX="-11" nameOffsetY="0" source="Sensor" target="toYellow" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="282" yCoord="295"/>
+      <arcpath arcPointType="false" id="1" xCoord="347" yCoord="397"/>
+    </arc>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="2" nameOffsetY="-8" source="Sensor" target="noAction" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="259" yCoord="284"/>
+      <arcpath arcPointType="false" id="1" xCoord="154" yCoord="292"/>
+    </arc>
+    <arc id="A21" inscription="1" nameOffsetX="0" nameOffsetY="0" source="approaching" target="P1" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="213" yCoord="194"/>
+      <arcpath arcPointType="false" id="1" xCoord="495" yCoord="286"/>
+    </arc>
+  </net>
+  <query active="false" approximationDenominator="2" capacity="10" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="IsThereDanger?" overApproximation="true" pTrie="true" query="AG !((Exercise3.Green = 1 or Exercise3.Yellow = 1) and Exercise3.Passing = 1)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true"/>
+  <query active="true" approximationDenominator="2" capacity="6" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="true" hashTableSize="null" inclusionPlaces="*NONE*" name="IsThereDanger?a" overApproximation="true" pTrie="true" query="AG !((Exercise3a.Green &gt;= 1 or Exercise3a.Yellow &gt;= 1) and Exercise3a.Passing &gt;= 1)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>

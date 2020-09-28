@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <constant name="s1" value="3"/>
+  <constant name="s2" value="6"/>
+  <constant name="s3" value="7"/>
+  <constant name="sum" value="16"/>
+  <constant name="s1a" value="2"/>
+  <constant name="s2a" value="3"/>
+  <constant name="s3a" value="4"/>
+  <constant name="suma" value="10"/>
+  <net active="true" id="Exercise1a" type="P/T net">
+    <place displayName="true" id="S1a" initialMarking="1" invariant="&lt;= s1a" name="S1a" nameOffsetX="43" nameOffsetY="42" positionX="70" positionY="284"/>
+    <place displayName="true" id="S2a" initialMarking="0" invariant="&lt;= s2a" name="S2a" nameOffsetX="45" nameOffsetY="46" positionX="330" positionY="280"/>
+    <place displayName="true" id="S3a" initialMarking="0" invariant="&lt;= s3a" name="S3a" nameOffsetX="53" nameOffsetY="54" positionX="602" positionY="277"/>
+    <place displayName="true" id="Suma" initialMarking="0" invariant="&lt;= suma" name="Suma" nameOffsetX="-9" nameOffsetY="0" positionX="90" positionY="40"/>
+    <place displayName="true" id="P8" initialMarking="0" invariant="&lt; inf" name="P8" nameOffsetX="55" nameOffsetY="0" positionX="600" positionY="104"/>
+    <place displayName="true" id="P9" initialMarking="1" invariant="&lt;= suma" name="P9" nameOffsetX="110" nameOffsetY="3" positionX="596" positionY="30"/>
+    <transition angle="180" displayName="true" id="firstNumber" infiniteServer="false" name="firstNumber" nameOffsetX="42" nameOffsetY="-13" player="0" positionX="260" positionY="288" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="secondNumber" infiniteServer="false" name="secondNumber" nameOffsetX="41" nameOffsetY="-13" player="0" positionX="464" positionY="284" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="thirdNumber" infiniteServer="false" name="thirdNumber" nameOffsetX="-9" nameOffsetY="13" player="0" positionX="600" positionY="180" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="result" infiniteServer="false" name="result" nameOffsetX="0" nameOffsetY="0" player="0" positionX="510" positionY="60" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[s1a,s1a]" nameOffsetX="22" nameOffsetY="-13" source="S1a" target="firstNumber" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="100" yCoord="299"/>
+      <arcpath arcPointType="false" id="1" xCoord="270" yCoord="303"/>
+    </arc>
+    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="firstNumber" target="S2a" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="280" yCoord="302"/>
+      <arcpath arcPointType="false" id="1" xCoord="330" yCoord="297"/>
+    </arc>
+    <arc id="A5" inscription="[s2a,s2a]" nameOffsetX="0" nameOffsetY="-13" source="S2a" target="secondNumber" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="360" yCoord="296"/>
+      <arcpath arcPointType="false" id="1" xCoord="474" yCoord="300"/>
+    </arc>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="secondNumber" target="S3a" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="484" yCoord="299"/>
+      <arcpath arcPointType="false" id="1" xCoord="602" yCoord="293"/>
+    </arc>
+    <arc id="A7" inscription="[s3a,s3a]" nameOffsetX="-6" nameOffsetY="0" source="S3a" target="thirdNumber" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="617" yCoord="277"/>
+      <arcpath arcPointType="false" id="1" xCoord="615" yCoord="200"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="thirdNumber" target="P8" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="614" yCoord="190"/>
+      <arcpath arcPointType="false" id="1" xCoord="615" yCoord="134"/>
+    </arc>
+    <arc id="A9" inscription="[0,0]" nameOffsetX="-1" nameOffsetY="14" source="P8" target="result" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="601" yCoord="113"/>
+      <arcpath arcPointType="false" id="1" xCoord="530" yCoord="80"/>
+    </arc>
+    <arc id="A10" inscription="[suma,suma]" nameOffsetX="13" nameOffsetY="-19" source="P9" target="result" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="597" yCoord="49"/>
+      <arcpath arcPointType="false" id="1" xCoord="530" yCoord="70"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="result" target="Suma" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="520" yCoord="76"/>
+      <arcpath arcPointType="false" id="1" xCoord="120" yCoord="56"/>
+    </arc>
+  </net>
+  <net active="false" id="Exercise1" type="P/T net">
+    <place displayName="true" id="S1" initialMarking="1" invariant="&lt;= s1" name="S1" nameOffsetX="43" nameOffsetY="42" positionX="70" positionY="284"/>
+    <place displayName="true" id="S2" initialMarking="0" invariant="&lt;= s2" name="S2" nameOffsetX="45" nameOffsetY="46" positionX="330" positionY="280"/>
+    <place displayName="true" id="S3" initialMarking="0" invariant="&lt;= s3" name="S3" nameOffsetX="53" nameOffsetY="54" positionX="602" positionY="277"/>
+    <place displayName="true" id="Sum" initialMarking="0" invariant="&lt;= sum" name="Sum" nameOffsetX="0" nameOffsetY="0" positionX="90" positionY="40"/>
+    <place displayName="true" id="P8" initialMarking="0" invariant="&lt; inf" name="P8" nameOffsetX="55" nameOffsetY="0" positionX="600" positionY="104"/>
+    <place displayName="true" id="P9" initialMarking="1" invariant="&lt;= sum" name="P9" nameOffsetX="110" nameOffsetY="3" positionX="596" positionY="30"/>
+    <transition angle="180" displayName="true" id="firstNumber" infiniteServer="false" name="firstNumber" nameOffsetX="48" nameOffsetY="-20" player="0" positionX="260" positionY="288" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="secondNumber" infiniteServer="false" name="secondNumber" nameOffsetX="50" nameOffsetY="-7" player="0" positionX="464" positionY="284" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="thirdNumber" infiniteServer="false" name="thirdNumber" nameOffsetX="0" nameOffsetY="0" player="0" positionX="600" positionY="180" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="result" infiniteServer="false" name="result" nameOffsetX="0" nameOffsetY="0" player="0" positionX="510" positionY="60" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[s1,s1]" nameOffsetX="22" nameOffsetY="-13" source="S1" target="firstNumber" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="99" yCoord="299"/>
+      <arcpath arcPointType="false" id="1" xCoord="270" yCoord="302"/>
+    </arc>
+    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="firstNumber" target="S2" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="280" yCoord="302"/>
+      <arcpath arcPointType="false" id="1" xCoord="330" yCoord="296"/>
+    </arc>
+    <arc id="A5" inscription="[s2,s2]" nameOffsetX="3" nameOffsetY="10" source="S2" target="secondNumber" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="359" yCoord="295"/>
+      <arcpath arcPointType="false" id="1" xCoord="473" yCoord="299"/>
+    </arc>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="secondNumber" target="S3" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="483" yCoord="299"/>
+      <arcpath arcPointType="false" id="1" xCoord="602" yCoord="292"/>
+    </arc>
+    <arc id="A7" inscription="[s3,s3]" nameOffsetX="-6" nameOffsetY="0" source="S3" target="thirdNumber" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="616" yCoord="277"/>
+      <arcpath arcPointType="false" id="1" xCoord="614" yCoord="199"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="thirdNumber" target="P8" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="614" yCoord="189"/>
+      <arcpath arcPointType="false" id="1" xCoord="614" yCoord="133"/>
+    </arc>
+    <arc id="A9" inscription="[0,0]" nameOffsetX="0" nameOffsetY="0" source="P8" target="result" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="601" yCoord="112"/>
+      <arcpath arcPointType="false" id="1" xCoord="529" yCoord="80"/>
+    </arc>
+    <arc id="A10" inscription="[sum,sum]" nameOffsetX="13" nameOffsetY="-19" source="P9" target="result" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="596" yCoord="49"/>
+      <arcpath arcPointType="false" id="1" xCoord="530" yCoord="70"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="result" target="Sum" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="519" yCoord="75"/>
+      <arcpath arcPointType="false" id="1" xCoord="119" yCoord="55"/>
+    </arc>
+  </net>
+  <query active="false" approximationDenominator="2" capacity="0" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="s1+s2+s3=sum" overApproximation="true" pTrie="true" query="EF Exercise1.Sum &gt; 0" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true"/>
+  <query active="true" approximationDenominator="2" capacity="0" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="s1a+s2a+s3a=suma" overApproximation="true" pTrie="true" query="EF Exercise1a.Suma &gt; 0" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="SOME" useStubbornReduction="true"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
