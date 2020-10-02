@@ -212,7 +212,7 @@
 
 If a node is visited twice, all of its outbound transitions are disabled using inhibitor arcs with a weight of 2 on outbound transitions.
 
-This is to force the system to place a token into the v(x)Loop nodes which detect a loop has occurred. Then our query check that all the loop nodes are always = 0
+This is to force the system to place a token into the v(x)Loop nodes which detect a loop has occurred. Then our query checks that all the loop nodes are always = 0
 
 (We may separate these two properties into separate components for clarity in future)</labels>
     <place displayName="true" id="v2Visited" initialMarking="0" invariant="&lt; inf" name="v2Visited" nameOffsetX="85" nameOffsetY="32" positionX="339" positionY="417"/>
