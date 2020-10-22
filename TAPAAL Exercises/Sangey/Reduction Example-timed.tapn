@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="1" invariant="&lt; inf" name="Controller"/>
+  <shared-transition name="T0" player="0" urgent="false"/>
+  <shared-transition name="T1" player="0" urgent="false"/>
+  <shared-transition name="T2" player="0" urgent="false"/>
+  <shared-transition name="T3" player="0" urgent="false"/>
+  <shared-transition name="T4" player="0" urgent="false"/>
+  <net active="true" id="Toplogy" type="P/T net">
+    <place displayName="true" id="Start_Router" initialMarking="0" invariant="&lt; inf" name="Start_Router" nameOffsetX="41" nameOffsetY="-9" positionX="68" positionY="102"/>
+    <place displayName="true" id="P1" initialMarking="0" invariant="&lt; inf" name="P1" nameOffsetX="0" nameOffsetY="0" positionX="224" positionY="102"/>
+    <place displayName="true" id="P2" initialMarking="0" invariant="&lt; inf" name="P2" nameOffsetX="0" nameOffsetY="0" positionX="421" positionY="104"/>
+    <place displayName="true" id="P3" initialMarking="0" invariant="&lt; inf" name="P3" nameOffsetX="0" nameOffsetY="0" positionX="418" positionY="204"/>
+    <place displayName="true" id="End_Router" initialMarking="0" invariant="&lt; inf" name="End_Router" nameOffsetX="44" nameOffsetY="-11" positionX="602" positionY="118"/>
+    <transition angle="0" displayName="true" id="T0" infiniteServer="false" name="T0" nameOffsetX="0" nameOffsetY="0" player="0" positionX="138" positionY="101" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="325" positionY="100" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T2" infiniteServer="false" name="T2" nameOffsetX="0" nameOffsetY="0" player="0" positionX="317" positionY="182" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T3" infiniteServer="false" name="T3" nameOffsetX="0" nameOffsetY="0" player="0" positionX="501" positionY="104" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T4" infiniteServer="false" name="T4" nameOffsetX="0" nameOffsetY="0" player="0" positionX="506" positionY="195" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Start_Router" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="97" yCoord="116"/>
+      <arcpath arcPointType="false" id="1" xCoord="147" yCoord="116"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T0" target="P1" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="157" yCoord="116"/>
+      <arcpath arcPointType="false" id="1" xCoord="224" yCoord="116"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="253" yCoord="116"/>
+      <arcpath arcPointType="false" id="1" xCoord="334" yCoord="115"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="P2" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="344" yCoord="115"/>
+      <arcpath arcPointType="false" id="1" xCoord="421" yCoord="118"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="250" yCoord="127"/>
+      <arcpath arcPointType="false" id="1" xCoord="326" yCoord="197"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="P3" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="336" yCoord="197"/>
+      <arcpath arcPointType="false" id="1" xCoord="418" yCoord="215"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P2" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="451" yCoord="119"/>
+      <arcpath arcPointType="false" id="1" xCoord="510" yCoord="119"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="End_Router" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="520" yCoord="119"/>
+      <arcpath arcPointType="false" id="1" xCoord="602" yCoord="130"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P3" target="T4" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="447" yCoord="217"/>
+      <arcpath arcPointType="false" id="1" xCoord="515" yCoord="210"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T4" target="End_Router" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="525" yCoord="210"/>
+      <arcpath arcPointType="false" id="1" xCoord="605" yCoord="142"/>
+    </arc>
+  </net>
+  <net active="true" id="Controller" type="P/T net">
+    <place displayName="true" id="Controller" initialMarking="1" invariant="&lt; inf" name="Controller" nameOffsetX="0" nameOffsetY="0" positionX="109" positionY="150"/>
+    <place displayName="true" id="Start_Router" initialMarking="0" invariant="&lt; inf" name="Start_Router" nameOffsetX="47" nameOffsetY="-14" positionX="374" positionY="152"/>
+    <transition angle="0" displayName="true" id="Inject_Packet" infiniteServer="false" name="Inject_Packet" nameOffsetX="41" nameOffsetY="-12" player="1" positionX="221" positionY="148" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Controller" target="Inject_Packet" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="138" yCoord="164"/>
+      <arcpath arcPointType="false" id="1" xCoord="230" yCoord="163"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Inject_Packet" target="Start_Router" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="240" yCoord="163"/>
+      <arcpath arcPointType="false" id="1" xCoord="374" yCoord="166"/>
+    </arc>
+  </net>
+  <net active="true" id="P1Properties" type="P/T net">
+    <place displayName="true" id="P1Visited" initialMarking="0" invariant="&lt; inf" name="P1Visited" nameOffsetX="0" nameOffsetY="0" positionX="139" positionY="119"/>
+    <transition angle="0" displayName="true" id="T0" infiniteServer="false" name="T0" nameOffsetX="0" nameOffsetY="0" player="0" positionX="36" positionY="118" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="270" positionY="118" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T2" infiniteServer="false" name="T2" nameOffsetX="0" nameOffsetY="0" player="0" positionX="271" positionY="201" priority="0" urgent="false"/>
+    <arc id="A0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T0" target="P1Visited" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="55" yCoord="133"/>
+      <arcpath arcPointType="false" id="1" xCoord="139" yCoord="133"/>
+    </arc>
+    <arc id="I1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1Visited" target="T1" type="tapnInhibitor" weight="2">
+      <arcpath arcPointType="false" id="0" xCoord="168" yCoord="133"/>
+      <arcpath arcPointType="false" id="1" xCoord="279" yCoord="133"/>
+    </arc>
+    <arc id="I2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1Visited" target="T2" type="tapnInhibitor" weight="2">
+      <arcpath arcPointType="false" id="0" xCoord="166" yCoord="142"/>
+      <arcpath arcPointType="false" id="1" xCoord="280" yCoord="216"/>
+    </arc>
+  </net>
+  <net active="true" id="P1Switch" type="P/T net">
+    <place displayName="true" id="Controller" initialMarking="1" invariant="&lt; inf" name="Controller" nameOffsetX="38" nameOffsetY="-11" positionX="358" positionY="105"/>
+    <place displayName="true" id="P1_P2" initialMarking="1" invariant="&lt; inf" name="P1_P2" nameOffsetX="27" nameOffsetY="-9" positionX="271" positionY="296"/>
+    <place displayName="true" id="P1_P3" initialMarking="0" invariant="&lt; inf" name="P1_P3" nameOffsetX="41" nameOffsetY="-4" positionX="426" positionY="290"/>
+    <transition angle="0" displayName="true" id="UpdateP1" infiniteServer="false" name="UpdateP1" nameOffsetX="1" nameOffsetY="6" player="0" positionX="358" positionY="224" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="23" nameOffsetY="54" player="0" positionX="270" positionY="383" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T2" infiniteServer="false" name="T2" nameOffsetX="24" nameOffsetY="60" player="0" positionX="431" positionY="380" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1_P2" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="286" yCoord="325"/>
+      <arcpath arcPointType="false" id="1" xCoord="285" yCoord="383"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="P1_P2" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="289" yCoord="398"/>
+      <arcpath arcPointType="false" id="1" xCoord="340" yCoord="368"/>
+      <arcpath arcPointType="false" id="2" xCoord="296" yCoord="321"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1_P3" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="441" yCoord="319"/>
+      <arcpath arcPointType="false" id="1" xCoord="446" yCoord="380"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="P1_P3" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="450" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="488" yCoord="362"/>
+      <arcpath arcPointType="false" id="2" xCoord="450" yCoord="316"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="UpdateP1" target="P1_P3" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="377" yCoord="244"/>
+      <arcpath arcPointType="false" id="1" xCoord="430" yCoord="294"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1_P2" target="UpdateP1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="297" yCoord="301"/>
+      <arcpath arcPointType="false" id="1" xCoord="367" yCoord="239"/>
+    </arc>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Controller" target="UpdateP1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="373" yCoord="134"/>
+      <arcpath arcPointType="false" id="1" xCoord="373" yCoord="224"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="UpdateP1" target="Controller" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="373" yCoord="224"/>
+      <arcpath arcPointType="false" id="1" xCoord="354" yCoord="184"/>
+      <arcpath arcPointType="false" id="2" xCoord="368" yCoord="134"/>
+    </arc>
+  </net>
+  <net active="true" id="TimedTrick" type="P/T net">
+    <place displayName="true" id="P0" initialMarking="1" invariant="&lt; inf" name="P0" nameOffsetX="0" nameOffsetY="0" positionX="90" positionY="106"/>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Reachability" overApproximation="false" pTrie="true" query="AF Toplogy.End_Router = 1" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="DFS" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Properties" overApproximation="true" pTrie="true" query="AG ((Toplogy.End_Router = 0 or P1Properties.P1Visited &gt;= 1) and P1Properties.P1Visited &lt; 2)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="DFS" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true"/>
+  <k-bound bound="3"/>
+  <feature isGame="true" isTimed="true"/>
+</pnml>
