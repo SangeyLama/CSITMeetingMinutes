@@ -1,0 +1,102 @@
+# Meeting Notes
+
+Supervisor Meeting 8
+
+**Meeting Date:** 2020.10.30 10:00
+
+## Participants
+**Group Members**
+* [Sangey Lama](mailto:slama20@student.aau.dk)
+* [Andrei Katona](mailto:akaton20@student.aau.dk)
+* [Federik Brunø Lottrup](mailto:fbruna17@student.aau.dk)
+* [Jonathan Fjord Jonler](mailto:jjanle17@student.aau.dk)
+* [Martin Didriksen](mailto:mdidri15@student.aau.dk)
+* [Shahab Shajarat](mailto:sshaja17@student.aau.dk)
+
+**Supervisor:** [Jiri Srba](mailto:srba@cs.aau.dk)
+
+**Minute Keeper:** [Sangey Lama](mailto:slama20@student.aau.dk)
+
+## Minutes:
+10:00
+Demo the implementation
+
+Jiri asked if it is in Java in Tapaal? - No currently just in a python script
+
+Example of A JSON file structure (Initial Routing, and Properties)
+Perfect list of edge
+Waypoint - needs two 2 nodes and the Waypoint - We assume we have a sensible routing. In the paper we assume arbitrary routing.
+Jiri thinks it can be any set of edges with at least one out going edge.
+
+Reachability - start and end node. (u,v,w)
+
+Is there a loop from v5? Routing any series of edges it doesn't necessarily have to form a path. Could be two independant paths coded in our properties / routing.
+
+LoopFreedom(u) takes one argument from this nodes. Is there a loop from v5? Is there a loop from v7? - Need to model this in a different way.
+
+Our implementation works.
+
+Switches - Pe_Active, P'e_Active (rename for switches in paper)
+
+With waypoint? If there is a loop the waypoint is unbounded so token can accumulated.
+
+Loop freedom construction could restrict waypointing and loop freedom. If we deadlock the net we don't finish the
+
+Suggests to alter our properties.
+
+Add conjunction for JSON properties.
+If both properties Combine AG Waypoint and LoopFreedom
+
+We do not allow conjunction in the synthesis - We can't decompose them independently.
+Strategy synthesis means we cannot ensure two separate strategies that satisfy both the AF and AG.
+Modelling trick to detect reachability?
+
+2 Waypoints (u,v,w) - Think like a game player. Environment is injecting the token, let it pick
+the bad choice?
+
+Good exercise construct a tiny net, we can't satisfy Phi1 and Phi2. If we have all AG property we can
+do AG. Multiple waypointing.
+
+We need to generalisation the JSON files to have all the parameters. Next step generate a benchmark cases
+auto generate the routing. NetSync - direct competitor.
+
+Find two disjoint paths, generalised waypoint (Either through wpnode 1 or wpnode 2).
+Could have a set of nodes of (w for the waypointing). AG - Using Or operator instead of And
+
+Two paths that share a lot of edges - higher chance that something goes wrong.
+
+Assume the weight of every edge is one, shortest path to each other node. -
+Pick the node that has the longest path, Then pick another path between these two nodes
+that has a similar weight.
+
+Take the same data as the nate paper and compare who is faster.
+
+Proof of reduction: Not now, we have most of it done.
+
+Task for next week:
+
+Naming convention is correct, the JSON properties are corrected to match the paper.
+
+The paper is almost finished. Introducton, Related works need to be extended, Proof - why our construction is correct
+and our experiments, conclusion. - Start with the benchmarking and implementation at first.
+
+Related works - find the papers which do something similar, put them in the same paragraph - maybe only 3-5 paragraphs.
+
+Correct Update sequences.
+
+Our update synthesis problem - is more general, the same router can be updated multiple times. We need
+to be explicit we focus on Finding the sequence of routers only appears once. For every edge there at most
+1 V in the sequence.
+
+Be concrete on examples. Definition Petri net games 16, 17 - both are too complicated.
+Defines numerous things in 1 thing not good. Separate them out.
+Examples for winning strategy to explain how it works.
+
+
+## Summary:
+A lot of stuff to do.
+
+
+### Next Meetings:
+2020.10.05 - 10:00
+2020.10.17 - 10:00
