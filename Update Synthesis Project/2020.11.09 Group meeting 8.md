@@ -1,0 +1,24 @@
+# Meeting Notes
+
+Insert meeting title
+
+**Meeting Date:** Insert meeting date
+
+## Participants
+**Group Members**
+* [Sangey Lama](mailto:slama20@student.aau.dk)
+* [Andrei Katona](mailto:akaton20@student.aau.dk)
+* [Federik Brunø Lottrup](mailto:fbruna17@student.aau.dk)
+* [Jonathan Fjord Jonler](mailto:jjanle17@student.aau.dk)
+* [Martin Didriksen](mailto:mdidri15@student.aau.dk)
+* [Shahab Shajarat](mailto:sshaja17@student.aau.dk)
+
+**Supervisor:** [Jiri Srba](mailto:srba@cs.aau.dk)
+
+**Minute Keeper:** [Sangey Lama](mailto:slama20@student.aau.dk)
+
+## Minutes:
+
+## Summary:
+
+### Next Meeting:
